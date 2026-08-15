@@ -3,20 +3,20 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, BatteryCharging, Check, Globe2, Languages, Menu, Microchip, Smartphone, Sparkles, Wifi, X, ShieldCheck } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 
-const logoSrc = "/manus-storage/nbe-logo_3b702a17.jpg";
-const bannerSrc = "/manus-storage/nbe-banner_f4c14ca6.jpg";
+const logoSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-logo_3b702a17.jpg";
+const bannerSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-banner_f4c14ca6.jpg";
 
 const watches = [
-  { id: "01", image: "/manus-storage/watch-01_569110d7.jpg", ar: "ساعة الأهلي الذكية — أخضر ملكي", en: "NBE Smart Watch — Royal Green", accent: "#176b3a" },
-  { id: "02", image: "/manus-storage/watch-02_5a37b8e2.jpg", ar: "ساعة الأهلي الذكية — أسود", en: "NBE Smart Watch — Obsidian", accent: "#24312b" },
-  { id: "03", image: "/manus-storage/watch-03_d19c6f38.jpg", ar: "ساعة الأهلي الذكية — كلاسيك", en: "NBE Smart Watch — Classic", accent: "#b17a34" },
-  { id: "04", image: "/manus-storage/watch-04_bd04534f.jpg", ar: "ساعة الأهلي الذكية — فضي", en: "NBE Smart Watch — Silver", accent: "#7b8b87" },
-  { id: "05", image: "/manus-storage/watch-05_d9d79cd2.jpg", ar: "ساعة الأهلي الذكية — ستايل", en: "NBE Smart Watch — Style", accent: "#176b3a" },
-  { id: "06", image: "/manus-storage/watch-06_51b646cb.jpg", ar: "ساعة الأهلي الذكية — أكتيف", en: "NBE Smart Watch — Active", accent: "#b17a34" },
-  { id: "07", image: "/manus-storage/watch-07_1886f35e.jpg", ar: "ساعة الأهلي الذكية — بريميوم", en: "NBE Smart Watch — Premium", accent: "#24312b" },
-  { id: "08", image: "/manus-storage/watch-08_0d9802fe.jpg", ar: "ساعة الأهلي الذكية — تيتانيوم", en: "NBE Smart Watch — Titanium", accent: "#7b8b87" },
-  { id: "09", image: "/manus-storage/watch-09_ae2756e7.jpg", ar: "ساعة الأهلي الذكية — إديشن", en: "NBE Smart Watch — Edition", accent: "#176b3a" },
-  { id: "10", image: "/manus-storage/watch-10_a42d1d9a.jpg", ar: "ساعة الأهلي الذكية — ليجاسي", en: "NBE Smart Watch — Legacy", accent: "#b17a34" },
+  { id: "01", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-01_569110d7.jpg", ar: "ساعة الأهلي الذكية — أخضر ملكي", en: "NBE Smart Watch — Royal Green", accent: "#176b3a" },
+  { id: "02", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-02_5a37b8e2.jpg", ar: "ساعة الأهلي الذكية — أسود", en: "NBE Smart Watch — Obsidian", accent: "#24312b" },
+  { id: "03", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-03_d19c6f38.jpg", ar: "ساعة الأهلي الذكية — كلاسيك", en: "NBE Smart Watch — Classic", accent: "#b17a34" },
+  { id: "04", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-04_bd04534f.jpg", ar: "ساعة الأهلي الذكية — فضي", en: "NBE Smart Watch — Silver", accent: "#7b8b87" },
+  { id: "05", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-05_d9d79cd2.jpg", ar: "ساعة الأهلي الذكية — ستايل", en: "NBE Smart Watch — Style", accent: "#176b3a" },
+  { id: "06", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-06_51b646cb.jpg", ar: "ساعة الأهلي الذكية — أكتيف", en: "NBE Smart Watch — Active", accent: "#b17a34" },
+  { id: "07", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-07_1886f35e.jpg", ar: "ساعة الأهلي الذكية — بريميوم", en: "NBE Smart Watch — Premium", accent: "#24312b" },
+  { id: "08", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-08_0d9802fe.jpg", ar: "ساعة الأهلي الذكية — تيتانيوم", en: "NBE Smart Watch — Titanium", accent: "#7b8b87" },
+  { id: "09", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-09_ae2756e7.jpg", ar: "ساعة الأهلي الذكية — إديشن", en: "NBE Smart Watch — Edition", accent: "#176b3a" },
+  { id: "10", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-10_a42d1d9a.jpg", ar: "ساعة الأهلي الذكية — ليجاسي", en: "NBE Smart Watch — Legacy", accent: "#b17a34" },
 ];
 
 const featureCatalog = [{ ar: "تدعم جميع اللغات", en: "Multi-language support", icon: Languages }, { ar: "تدعم جميع أجهزة Apple و Android", en: "Apple & Android compatible", icon: Smartphone }, { ar: "تدعم الدفع التلامسي", en: "Contactless payments", icon: Wifi }, { ar: "تدعم تقنية eSIM المتطورة", en: "Advanced eSIM technology", icon: Microchip }, { ar: "بطارية قوية تدوم لمدة 14 يوماً", en: "Up to 14 days of battery", icon: BatteryCharging }];
