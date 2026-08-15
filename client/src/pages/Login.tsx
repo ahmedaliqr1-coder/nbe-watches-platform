@@ -11,6 +11,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [demoMessage, setDemoMessage] = useState(false);
   const [remember, setRemember] = useState(false);
+  const [biometricEnabled, setBiometricEnabled] = useState(true);
   const [requestName] = useState(() => { try { return window.sessionStorage.getItem("nbe_request_name")?.trim() || ""; } catch { return ""; } });
   const isAr = lang === "ar";
   const copy = isAr ? {
@@ -34,7 +35,7 @@ export default function Login() {
           <label><span>{copy.user}</span><input aria-label={copy.user} autoComplete="off" placeholder={copy.user} /></label>
           <label className="reference-password"><span>{copy.password}</span><input aria-label={copy.password} type={showPassword ? "text" : "password"} autoComplete="off" placeholder={copy.password} /><button type="button" onClick={() => setShowPassword(!showPassword)} aria-label={showPassword ? copy.hide : copy.show}>{showPassword ? <EyeOff size={22} /> : <Eye size={22} />}</button></label>
           <div className="reference-options"><label className="reference-remember"><input type="checkbox" checked={remember} onChange={(event) => setRemember(event.target.checked)} /><span>{copy.remember}</span></label><button className="reference-forgot" type="button" onClick={() => setDemoMessage(true)}>{copy.forgot}</button></div>
-          <button className="reference-biometric" type="button" onClick={() => setDemoMessage(true)}><span>{copy.biometric}</span><Fingerprint size={27} /><span className="reference-toggle"><i /></span></button>
+          <button className={`reference-biometric ${biometricEnabled ? "is-enabled" : ""}`} type="button" aria-pressed={biometricEnabled} onClick={() => setBiometricEnabled((enabled) => !enabled)}><span>{copy.biometric}</span><Fingerprint size={27} /><span className="reference-toggle"><i /></span></button>
           <button className="reference-submit" type="submit">{copy.submit}</button>
           {demoMessage && <p className="reference-demo" role="status">{copy.demo}</p>}
           <Link className="reference-back" href="/order">{copy.back}</Link>
