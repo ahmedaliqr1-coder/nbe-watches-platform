@@ -632,3 +632,196 @@ body { background: #ffffff; }
 
 /* Keep the selected watch directly below the shared header before the form columns. */
 .form-page > .selected-watch-section { grid-column: 1 / -1; }
+
+/* Fixed header correction: keep navigation visible while scrolling without covering page content. */
+.site-shared-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 3px 18px rgba(23, 56, 42, .08);
+}
+.site {
+  padding-top: 82px;
+}
+.login-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  width: 100%;
+  background: #007343;
+  box-shadow: 0 3px 18px rgba(0, 0, 0, .16);
+}
+.login-page {
+  padding-top: 88px;
+}
+@media (max-width: 600px) {
+  .site { padding-top: 78px; }
+  .login-page { padding-top: 108px; }
+}
+
+/* Compact fixed-header pass: short viewport-pinned navigation with no oversized top gap. */
+.site-header {
+  position: fixed !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 1000 !important;
+  height: 58px;
+  padding: 0 5vw !important;
+  background: #fff !important;
+}
+.site-header .header-inner {
+  min-height: 58px;
+  height: 58px;
+  padding: 2px 12px;
+}
+.site-header .brand img { width: 156px; height: 42px; }
+.site-header .header-actions { gap: 12px; }
+.site-header .menu-button { width: 34px; height: 34px; }
+.site { padding-top: 58px !important; }
+.login-header,
+.login-header-rebuilt {
+  position: fixed !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 1000 !important;
+  height: 58px;
+  padding: 8px clamp(16px, 5vw, 64px) !important;
+  background: #007343;
+}
+.login-header-rebuilt { background: #fff; }
+.login-page { padding-top: 58px !important; }
+.login-page-rebuilt { padding-top: 58px; }
+.login-main-rebuilt {
+  min-height: calc(100vh - 58px);
+  padding-top: 28px;
+}
+.login-header .login-logo img,
+.login-header-rebuilt .login-logo img { width: 132px; height: 38px; }
+@media (max-width: 600px) {
+  .site-header { height: 54px; padding-inline: 10px !important; }
+  .site-header .header-inner { min-height: 54px; height: 54px; padding-inline: 2px; }
+  .site-header .brand img { width: 132px; height: 36px; }
+  .site-header .menu-button { width: 32px; height: 32px; }
+  .site { padding-top: 54px !important; }
+  .login-header,
+  .login-header-rebuilt { height: 54px; padding: 7px 12px !important; }
+  .login-page,
+  .login-page-rebuilt { padding-top: 54px !important; }
+  .login-main-rebuilt { min-height: calc(100vh - 54px); padding-top: 20px; }
+  .login-header .login-logo img,
+  .login-header-rebuilt .login-logo img { width: 120px; height: 34px; }
+}
+
+/* White OTP page with the same compact fixed storefront header. */
+.otp-page {
+  min-height: 100vh;
+  padding-top: 58px;
+  color: #17382a;
+  background: #fff;
+}
+.otp-main {
+  width: min(100% - 32px, 560px);
+  min-height: calc(100vh - 58px);
+  margin: 0 auto;
+  padding: 34px 0 60px;
+  display: grid;
+  place-items: start center;
+  align-content: start;
+}
+.otp-brand-mark {
+  width: 150px;
+  height: 48px;
+  margin-bottom: 22px;
+  display: grid;
+  place-items: center;
+}
+.otp-brand-mark img {
+  width: 140px;
+  height: 42px;
+  object-fit: contain;
+}
+.otp-card {
+  width: 100%;
+  padding: 30px clamp(20px, 5vw, 42px) 34px;
+  border: 1px solid #e1e9e3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(23, 56, 42, .08);
+}
+.otp-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.otp-shield {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  color: #087947;
+  background: #eaf7ef;
+}
+.otp-heading p {
+  margin: 0 0 4px;
+  color: #6b7a72;
+  font-size: .78rem;
+}
+.otp-heading h1 {
+  margin: 0;
+  color: #17382a;
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+}
+.otp-form {
+  display: grid;
+  gap: 13px;
+}
+.otp-form .otp-subtitle {
+  margin: 0 0 2px;
+  color: #5d7165;
+  font-size: .84rem;
+  line-height: 1.7;
+}
+.otp-code-label {
+  color: #365247;
+  font-size: .78rem;
+  font-weight: 700;
+}
+.otp-single-input {
+  width: 100%;
+  height: 62px;
+  padding: 0 18px;
+  border: 1px solid #cfdcd3;
+  border-radius: 10px;
+  outline: none;
+  color: #17382a;
+  background: #fbfdfb;
+  direction: ltr;
+  text-align: center;
+  letter-spacing: .45em;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+.otp-single-input::placeholder {
+  color: #a8b8ad;
+  letter-spacing: .45em;
+}
+.otp-single-input:focus {
+  border-color: #168251;
+  box-shadow: 0 0 0 3px rgba(22, 130, 81, .12);
+}
+.otp-submit { margin-top: 4px; }
+@media (max-width: 600px) {
+  .otp-page { padding-top: 54px; }
+  .otp-main {
+    width: min(100% - 22px, 520px);
+    min-height: calc(100vh - 54px);
+    padding-top: 24px;
+  }
+  .otp-brand-mark { margin-bottom: 16px; }
+  .otp-card { padding: 24px 18px 28px; border-radius: 16px; }
+  .otp-heading { margin-bottom: 20px; }
+  .otp-single-input { height: 56px; font-size: 1.25rem; }
+}
