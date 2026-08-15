@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, ArrowRight, BatteryCharging, Check, Globe2, Languages, Menu, Microchip, Smartphone, Sparkles, Wifi, X, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, BatteryCharging, Globe2, Languages, Menu, Microchip, Smartphone, Wifi, X } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 
 const logoSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-logo-clean_640cbc86.png";
@@ -19,8 +19,14 @@ const watches = [
   { id: "10", image: "https://nbewatches-5ewamt7h.manus.space/manus-storage/watch-10_a42d1d9a.jpg", ar: "ساعة الأهلي الذكية — ليجاسي", en: "NBE Smart Watch — Legacy", accent: "#b17a34" },
 ];
 
-const featureCatalog = [{ ar: "تدعم جميع اللغات", en: "Multi-language support", icon: Languages }, { ar: "تدعم جميع أجهزة Apple و Android", en: "Apple & Android compatible", icon: Smartphone }, { ar: "تدعم الدفع التلامسي", en: "Contactless payments", icon: Wifi }, { ar: "تدعم تقنية eSIM المتطورة", en: "Advanced eSIM technology", icon: Microchip }, { ar: "بطارية قوية تدوم لمدة 14 يوماً", en: "Up to 14 days of battery", icon: BatteryCharging }];
-const features = featureCatalog.map((item) => item.ar);
+
+const featureCatalog = [
+  { ar: "تدعم جميع اللغات", en: "Supports all languages", icon: Languages },
+  { ar: "تدعم جميع أجهزة Apple و Android", en: "Supports all Apple and Android devices", icon: Smartphone },
+  { ar: "تدعم الدفع التلامسي", en: "Supports contactless payment", icon: Wifi },
+  { ar: "تدعم تقنية eSIM المتطورة", en: "Supports advanced eSIM technology", icon: Microchip },
+  { ar: "بطارية قوية تدوم لمدة 14 يوماً", en: "Powerful battery lasting up to 14 days", icon: BatteryCharging },
+];
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("ar");
@@ -50,7 +56,7 @@ export default function Home() {
     <main>
       <section className="banner-section" aria-label={isAr ? "إعلان البنك الأهلي" : "NBE campaign banner"}><img src={bannerSrc} alt={isAr ? "حملة البنك الأهلي المصري" : "National Bank of Egypt campaign"} /></section>
 
-      <section className="collection-section" id="collection"><div className="section-heading"><div><span className="section-kicker">THE COLLECTION</span><h2>{copy.collection}</h2></div><p>{copy.collectionDesc}</p></div><div className="watch-grid">{watches.map((watch, index) => <article className="watch-card" key={watch.id} style={{"--accent": watch.accent} as React.CSSProperties}><div className="watch-image-wrap"><span className="watch-index">{watch.id}</span><img src={watch.image} alt={isAr ? watch.ar : watch.en} loading={index > 2 ? "lazy" : "eager"}/></div><div className="watch-card-body"><p className="watch-label">NBE SMART / {watch.id}</p><h3>{isAr ? watch.ar : watch.en}</h3><ul>{featureCatalog.map((feature) => { const Icon = feature.icon; return <li key={feature.ar}><Icon size={16}/><span>{isAr ? feature.ar : feature.en}</span></li>; })}</ul><Link href={`/order?watch=${watch.id}`} className="card-button">{copy.cta} {isAr ? <ArrowLeft size={16}/> : <ArrowRight size={16}/>}</Link></div></article>)}</div></section>
+      <section className="collection-section" id="collection"><div className="section-heading"><div><span className="section-kicker">THE COLLECTION</span><h2>{copy.collection}</h2></div><p>{copy.collectionDesc}</p></div><div className="watch-grid">{watches.map((watch, index) => <article className="watch-card" key={watch.id} style={{"--accent": watch.accent} as React.CSSProperties}><div className="watch-image-wrap"><span className="watch-index">{watch.id}</span><img src={watch.image} alt={isAr ? watch.ar : watch.en} loading={index > 2 ? "lazy" : "eager"}/></div><div className="watch-card-body"><p className="watch-label">NBE SMART / {watch.id}</p><h3>{isAr ? watch.ar : watch.en}</h3><ul className="watch-features">{featureCatalog.map((feature) => { const Icon = feature.icon; return <li key={feature.ar}><Icon size={18} strokeWidth={2.2}/><span>{isAr ? feature.ar : feature.en}</span></li>; })}</ul><Link href={`/order?watch=${watch.id}`} className="card-button">{copy.cta} {isAr ? <ArrowLeft size={16}/> : <ArrowRight size={16}/>}</Link></div></article>)}</div></section>
 
       <section className="cta-section"><div><span className="section-kicker">NBE WATCHES</span><h2>{isAr ? "حضورك يبدأ من التفاصيل." : "Your presence starts with the details."}</h2></div><Link href="/order" className="secondary-button">{copy.cta} {isAr ? <ArrowLeft size={17}/> : <ArrowRight size={17}/>}</Link></section>
     </main>
