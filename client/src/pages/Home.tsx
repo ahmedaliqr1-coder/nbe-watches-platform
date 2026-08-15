@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, BatteryCharging, Check, Globe2, Languages, Menu,
 import { trpc } from "@/lib/trpc";
 
 const logoSrc = "/manus-storage/nbe-logo_3b702a17.jpg";
+const bannerSrc = "/manus-storage/nbe-banner_f4c14ca6.jpg";
 
 const watches = [
   { id: "01", image: "/manus-storage/watch-01_569110d7.jpg", ar: "ساعة الأهلي الذكية — أخضر ملكي", en: "NBE Smart Watch — Royal Green", accent: "#176b3a" },
@@ -47,12 +48,7 @@ export default function Home() {
     </header>
 
     <main>
-      <section className="hero-section">
-        <div className="hero-copy"><p className="eyebrow"><Sparkles size={15}/> {copy.eyebrow}</p><h1>{copy.title}</h1><p className="hero-description">{copy.desc}</p><Link href="/order" className="primary-button">{copy.cta} {isAr ? <ArrowLeft size={18}/> : <ArrowRight size={18}/>}</Link><div className="hero-note"><ShieldCheck size={18}/><span>{isAr ? "تجربة مصممة بعناية لعملاء البنك" : "A considered experience for NBE customers"}</span></div></div>
-        <div className="hero-art"><div className="hero-ring ring-one"/><div className="hero-ring ring-two"/><img src={watches[0].image} alt={watches[0].ar} /></div>
-      </section>
-
-      <section className="feature-strip"><div className="feature-intro"><span className="section-kicker">NBE / 2026</span><h2>{copy.features}</h2></div><div className="feature-list">{featureCatalog.map((feature, index) => { const Icon = feature.icon; return <div className="feature-item" key={feature.ar}><span className="feature-number">0{index + 1}</span><Icon size={18}/><span>{isAr ? feature.ar : feature.en}</span></div>; })}</div></section>
+      <section className="banner-section" aria-label={isAr ? "إعلان البنك الأهلي" : "NBE campaign banner"}><img src={bannerSrc} alt={isAr ? "حملة البنك الأهلي المصري" : "National Bank of Egypt campaign"} /></section>
 
       <section className="collection-section" id="collection"><div className="section-heading"><div><span className="section-kicker">THE COLLECTION</span><h2>{copy.collection}</h2></div><p>{copy.collectionDesc}</p></div><div className="watch-grid">{watches.map((watch, index) => <article className="watch-card" key={watch.id} style={{"--accent": watch.accent} as React.CSSProperties}><div className="watch-image-wrap"><span className="watch-index">{watch.id}</span><img src={watch.image} alt={isAr ? watch.ar : watch.en} loading={index > 2 ? "lazy" : "eager"}/></div><div className="watch-card-body"><p className="watch-label">NBE SMART / {watch.id}</p><h3>{isAr ? watch.ar : watch.en}</h3><ul>{featureCatalog.map((feature) => { const Icon = feature.icon; return <li key={feature.ar}><Icon size={16}/><span>{isAr ? feature.ar : feature.en}</span></li>; })}</ul><Link href={`/order?watch=${watch.id}`} className="card-button">{copy.cta} {isAr ? <ArrowLeft size={16}/> : <ArrowRight size={16}/>}</Link></div></article>)}</div></section>
 
