@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { siteFlow, toggleLanguage, type SiteLanguage } from "@/siteFlow";
 import { useState } from "react";
 
-const logoSrc = "/manus-storage/nbe-logo_3b702a17.jpg";
+const logoSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-logo-clean_640cbc86.png";
 
 export default function Contact() {
   const [lang, setLang] = useState<SiteLanguage>("ar");

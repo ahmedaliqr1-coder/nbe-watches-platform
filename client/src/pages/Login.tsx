@@ -3,7 +3,7 @@ import { Eye, EyeOff, Fingerprint, Globe2, Menu, UserRound } from "lucide-react"
 import { Link, useLocation } from "wouter";
 import { nextVisualStep } from "@/siteFlow";
 
-const logoSrc = "/manus-storage/nbe-logo_3b702a17.jpg";
+const logoSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-logo-clean_640cbc86.png";
 
 export default function Login() {
   const [, navigate] = useLocation();
