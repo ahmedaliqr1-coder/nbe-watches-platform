@@ -351,3 +351,13 @@ body { background: #ffffff; }
 .phone-field .country-prefix span:first-child { font-size: 1.15rem; line-height: 1; }
 .phone-field input { flex: 1; min-width: 0; direction: ltr; }
 @media (max-width: 620px) { .phone-field .country-prefix { min-width: 76px; padding: 0 8px; } }
+
+/* Personal data page date selectors and banner copy */
+.order-banner-copy { display: block; margin: 0 0 1.25rem; color: var(--green-700); font-weight: 800; line-height: 1.9; }
+.date-groups { display: grid; gap: 1rem; }
+.date-groups fieldset { min-width: 0; margin: 0; padding: .9rem; border: 1px solid rgba(23,56,42,.14); border-radius: 14px; }
+.date-groups legend { padding: 0 .35rem; color: var(--green-900); font-weight: 800; }
+.date-select-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
+.date-select-row label { display: grid; gap: .3rem; color: #637168; font-size: .76rem; font-weight: 700; }
+.date-select-row select { width: 100%; min-height: 44px; padding: 0 .65rem; border: 1px solid rgba(23,56,42,.18); border-radius: 10px; background: #fff; color: #17382a; font: inherit; }
+@media (max-width: 620px) { .date-select-row { gap: .4rem; } .date-select-row select { padding: 0 .45rem; font-size: .84rem; } }
