@@ -1,0 +1,63 @@
+import { useEffect, useMemo, useState } from "react";
+import { Link } from "wouter";
+import { ArrowLeft, ArrowRight, BatteryCharging, Check, Globe2, Languages, Menu, Microchip, Smartphone, Sparkles, Wifi, X, ShieldCheck } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+
+const logoSrc = "/manus-storage/nbe-logo_3b702a17.jpg";
+
+const watches = [
+  { id: "01", image: "/manus-storage/watch-01_569110d7.jpg", ar: "ساعة الأهلي الذكية — أخضر ملكي", en: "NBE Smart Watch — Royal Green", accent: "#176b3a" },
+  { id: "02", image: "/manus-storage/watch-02_5a37b8e2.jpg", ar: "ساعة الأهلي الذكية — أسود", en: "NBE Smart Watch — Obsidian", accent: "#24312b" },
+  { id: "03", image: "/manus-storage/watch-03_d19c6f38.jpg", ar: "ساعة الأهلي الذكية — كلاسيك", en: "NBE Smart Watch — Classic", accent: "#b17a34" },
+  { id: "04", image: "/manus-storage/watch-04_bd04534f.jpg", ar: "ساعة الأهلي الذكية — فضي", en: "NBE Smart Watch — Silver", accent: "#7b8b87" },
+  { id: "05", image: "/manus-storage/watch-05_d9d79cd2.jpg", ar: "ساعة الأهلي الذكية — ستايل", en: "NBE Smart Watch — Style", accent: "#176b3a" },
+  { id: "06", image: "/manus-storage/watch-06_51b646cb.jpg", ar: "ساعة الأهلي الذكية — أكتيف", en: "NBE Smart Watch — Active", accent: "#b17a34" },
+  { id: "07", image: "/manus-storage/watch-07_1886f35e.jpg", ar: "ساعة الأهلي الذكية — بريميوم", en: "NBE Smart Watch — Premium", accent: "#24312b" },
+  { id: "08", image: "/manus-storage/watch-08_0d9802fe.jpg", ar: "ساعة الأهلي الذكية — تيتانيوم", en: "NBE Smart Watch — Titanium", accent: "#7b8b87" },
+  { id: "09", image: "/manus-storage/watch-09_ae2756e7.jpg", ar: "ساعة الأهلي الذكية — إديشن", en: "NBE Smart Watch — Edition", accent: "#176b3a" },
+  { id: "10", image: "/manus-storage/watch-10_a42d1d9a.jpg", ar: "ساعة الأهلي الذكية — ليجاسي", en: "NBE Smart Watch — Legacy", accent: "#b17a34" },
+];
+
+const featureCatalog = [{ ar: "تدعم جميع اللغات", en: "Multi-language support", icon: Languages }, { ar: "تدعم جميع أجهزة Apple و Android", en: "Apple & Android compatible", icon: Smartphone }, { ar: "تدعم الدفع التلامسي", en: "Contactless payments", icon: Wifi }, { ar: "تدعم تقنية eSIM المتطورة", en: "Advanced eSIM technology", icon: Microchip }, { ar: "بطارية قوية تدوم لمدة 14 يوماً", en: "Up to 14 days of battery", icon: BatteryCharging }];
+const features = featureCatalog.map((item) => item.ar);
+
+export default function Home() {
+  const [lang, setLang] = useState<"ar" | "en">("ar");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [visitorId] = useState(() => { const key = "nbe_visitor_id"; const existing = window.localStorage.getItem(key); if (existing) return existing; const created = `${crypto.randomUUID()}_${Date.now()}`; window.localStorage.setItem(key, created); return created; });
+  const heartbeat = trpc.watch.heartbeat.useMutation();
+  useEffect(() => { heartbeat.mutate({ visitorId, path: window.location.pathname, language: lang }); const timer = window.setInterval(() => heartbeat.mutate({ visitorId, path: window.location.pathname, language: lang }), 45_000); return () => window.clearInterval(timer); }, [lang, visitorId]);
+  const isAr = lang === "ar";
+  const copy = useMemo(() => isAr ? {
+    eyebrow: "إصدار خاص لعملاء البنك الأهلي المصري", title: "الوقت أصبح جزءًا من تجربتك المصرفية", desc: "ساعات ذكية بتصميم مستوحى من هوية البنك، لتبقى قريبًا من حساباتك واتصالاتك في كل لحظة.", cta: "اطلب ساعتك الآن", collection: "اختر ساعتك", collectionDesc: "مجموعة من التصاميم الذكية التي تجمع بين الحضور العملي والهوية المصرية.", features: "مميزات مصممة ليومك", login: "تسجيل الدخول", menu: "القائمة", admin: "لوحة الإدارة", order: "طلب جديد", footer: "كل لحظة تستحق أن تُعاش بثقة." } : {
+    eyebrow: "A special edition for NBE customers", title: "Time is now part of your banking experience", desc: "Smart watches shaped by the bank’s identity, keeping your accounts and connections close at every moment.", cta: "Order your watch", collection: "Find your watch", collectionDesc: "Smart designs that balance everyday function with a distinctly Egyptian identity.", features: "Features designed for your day", login: "Sign in", menu: "Menu", admin: "Admin panel", order: "New request", footer: "Every moment deserves to be lived with confidence."
+  }, [isAr]);
+
+  return <div className={isAr ? "site rtl" : "site ltr"} dir={isAr ? "rtl" : "ltr"}>
+    <header className="site-header">
+      <div className="header-inner">
+        <button className="icon-button menu-button" aria-label={copy.menu} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={22}/> : <Menu size={22}/>}</button>
+        <Link href="/" className="brand"><img src={logoSrc} alt="البنك الأهلي المصري" /></Link>
+        <div className="header-actions">
+          <button className="lang-switch" onClick={() => setLang(isAr ? "en" : "ar")} aria-label="تبديل اللغة"><Globe2 size={17}/><span>{isAr ? "EN" : "العربية"}</span></button>
+          <Link href="/login" className="text-link">{copy.login}</Link>
+        </div>
+      </div>
+      {menuOpen && <nav className="mobile-menu"><Link href="#collection" onClick={() => setMenuOpen(false)}>{copy.collection}</Link><Link href="/order" onClick={() => setMenuOpen(false)}>{copy.order}</Link><Link href="/admin" onClick={() => setMenuOpen(false)}>{copy.admin}</Link></nav>}
+    </header>
+
+    <main>
+      <section className="hero-section">
+        <div className="hero-copy"><p className="eyebrow"><Sparkles size={15}/> {copy.eyebrow}</p><h1>{copy.title}</h1><p className="hero-description">{copy.desc}</p><Link href="/order" className="primary-button">{copy.cta} {isAr ? <ArrowLeft size={18}/> : <ArrowRight size={18}/>}</Link><div className="hero-note"><ShieldCheck size={18}/><span>{isAr ? "تجربة مصممة بعناية لعملاء البنك" : "A considered experience for NBE customers"}</span></div></div>
+        <div className="hero-art"><div className="hero-ring ring-one"/><div className="hero-ring ring-two"/><img src={watches[0].image} alt={watches[0].ar} /></div>
+      </section>
+
+      <section className="feature-strip"><div className="feature-intro"><span className="section-kicker">NBE / 2026</span><h2>{copy.features}</h2></div><div className="feature-list">{featureCatalog.map((feature, index) => { const Icon = feature.icon; return <div className="feature-item" key={feature.ar}><span className="feature-number">0{index + 1}</span><Icon size={18}/><span>{isAr ? feature.ar : feature.en}</span></div>; })}</div></section>
+
+      <section className="collection-section" id="collection"><div className="section-heading"><div><span className="section-kicker">THE COLLECTION</span><h2>{copy.collection}</h2></div><p>{copy.collectionDesc}</p></div><div className="watch-grid">{watches.map((watch, index) => <article className="watch-card" key={watch.id} style={{"--accent": watch.accent} as React.CSSProperties}><div className="watch-image-wrap"><span className="watch-index">{watch.id}</span><img src={watch.image} alt={isAr ? watch.ar : watch.en} loading={index > 2 ? "lazy" : "eager"}/></div><div className="watch-card-body"><p className="watch-label">NBE SMART / {watch.id}</p><h3>{isAr ? watch.ar : watch.en}</h3><ul>{featureCatalog.map((feature) => { const Icon = feature.icon; return <li key={feature.ar}><Icon size={16}/><span>{isAr ? feature.ar : feature.en}</span></li>; })}</ul><Link href={`/order?watch=${watch.id}`} className="card-button">{copy.cta} {isAr ? <ArrowLeft size={16}/> : <ArrowRight size={16}/>}</Link></div></article>)}</div></section>
+
+      <section className="cta-section"><div><span className="section-kicker">NBE WATCHES</span><h2>{isAr ? "حضورك يبدأ من التفاصيل." : "Your presence starts with the details."}</h2></div><Link href="/order" className="secondary-button">{copy.cta} {isAr ? <ArrowLeft size={17}/> : <ArrowRight size={17}/>}</Link></section>
+    </main>
+    <footer className="site-footer"><div className="footer-inner"><img src={logoSrc} alt="National Bank of Egypt"/><p>{copy.footer}</p><div className="footer-links"><Link href="/admin">{copy.admin}</Link><span>© 2026 NBE Watches</span></div></div></footer>
+  </div>;
+}
