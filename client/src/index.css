@@ -236,3 +236,33 @@ button:disabled { cursor: wait; opacity: .64; }
 
 /* Reference typography and feature icon mapping */
 .site, .site * { font-family: "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif; }.collection-section, .watch-card, .feature-strip { color: #17382a; }.watch-card { --card-line: rgba(23,56,42,.12); border-color: var(--card-line); }.watch-label, .section-kicker, .feature-number { letter-spacing: .12em; }
+
+/* Refined storefront layout: banner-first, lighter scale */
+.banner-section { width: min(100% - 48px, 1180px); margin: 24px auto 0; overflow: hidden; background: #fff; border: 1px solid rgba(23,56,42,.08); box-shadow: 0 10px 28px rgba(23,56,42,.07); }
+.banner-section img { display: block; width: 100%; max-height: 520px; object-fit: cover; object-position: center; }
+.site-header { padding-top: 10px; background: #fff; }
+.header-inner { min-height: 64px; padding: 5px 12px; border-bottom: 0; }
+.brand img { width: 190px; height: 52px; }
+.header-actions { gap: 16px; }
+.menu-button { width: 38px; height: 38px; }
+.collection-section { padding: 58px 5vw 72px; }
+.section-heading { margin-bottom: 28px; }
+.section-heading h2, .cta-section h2 { font-size: clamp(1.7rem, 3.2vw, 2.8rem); }
+.watch-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.watch-image-wrap { height: 180px; padding: 14px; }
+.watch-card-body { padding: 16px; }
+.watch-card h3 { min-height: 48px; font-size: .92rem; }
+.watch-card ul { margin: 12px 0 16px; gap: 6px; font-size: .68rem; }
+.watch-card li svg { width: 14px; height: 14px; }
+.card-button { padding: 9px; font-size: .7rem; }
+.cta-section { margin-bottom: 64px; padding: 34px 40px; }
+.site-footer { padding: 30px 5vw; }
+.footer-inner img { width: 170px; height: 44px; }
+@media (max-width: 1050px) { .watch-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) { .banner-section { width: min(100% - 28px, 620px); margin-top: 14px; }.banner-section img { max-height: none; aspect-ratio: 1; object-fit: cover; }.watch-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }.collection-section { padding: 42px 7vw 58px; }.watch-image-wrap { height: 150px; }.watch-card-body { padding: 13px; }.watch-card h3 { font-size: .82rem; }.watch-card ul { font-size: .62rem; }.site-footer { padding: 28px 7vw; } }
+@media (max-width: 480px) { .brand img { width: 150px; height: 46px; }.header-inner { min-height: 58px; }.lang-switch { font-size: .7rem; }.watch-grid { grid-template-columns: 1fr 1fr; }.watch-image-wrap { height: 132px; padding: 9px; }.watch-card-body { padding: 11px; }.watch-label { font-size: .56rem; }.watch-card h3 { min-height: 42px; font-size: .76rem; }.watch-card ul { display: none; }.card-button { margin-top: 10px; font-size: .62rem; }.section-heading p { font-size: .78rem; } }
+
+/* Banner full-art correction: preserve the supplied square artwork without cropping */
+.banner-section { display: grid; place-items: center; padding: 12px; background: rgba(255,255,255,.52); }
+.banner-section img { width: min(100%, 520px); height: auto; max-height: none; aspect-ratio: 1; object-fit: contain; }
+@media (max-width: 760px) { .banner-section { padding: 6px; }.banner-section img { width: 100%; } }
