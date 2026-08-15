@@ -560,3 +560,49 @@ body { background: #ffffff; }
   .reference-login-form input:not([type="checkbox"]) { height: 52px; }
   .reference-submit { height: 54px; }
 }
+
+/* Official white two-step login */
+.official-login { min-height: 100vh; background: #fff; color: #173b2d; }
+.official-login-header { height: 76px; padding: 14px clamp(18px, 5vw, 72px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #edf1ee; background: #fff; }
+.official-login-brand img { width: 164px; height: 48px; object-fit: contain; }
+.official-login-header-actions { display: flex; align-items: center; gap: 12px; }
+.official-language { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 7px 12px; border: 1px solid #d8e3dc; border-radius: 8px; color: #007343; background: #fff; font-size: .86rem; font-weight: 700; cursor: pointer; }
+.official-menu { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #d8e3dc; border-radius: 50%; color: #007343; background: #fff; cursor: pointer; }
+.official-login-main { min-height: calc(100vh - 76px); display: grid; place-items: start center; padding: 42px 18px 70px; background: #fff; }
+.official-login-card { width: min(100%, 480px); padding: 30px clamp(22px, 5vw, 42px) 36px; border: 1px solid #edf1ee; border-radius: 18px; background: #fff; box-shadow: 0 12px 35px rgba(0,65,38,.08); text-align: center; }
+.official-card-logo { width: 190px; height: 64px; object-fit: contain; margin: 0 auto 22px; }
+.official-account-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+.official-account-tabs button { min-height: 66px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 1px solid #dfe8e2; border-radius: 10px; color: #668076; background: #fff; font-size: .9rem; cursor: pointer; transition: border-color .18s ease, color .18s ease, background .18s ease; }
+.official-account-tabs button.is-active { border-color: #007343; color: #007343; background: #f1faf5; box-shadow: inset 0 0 0 1px #007343; }
+.official-login-greeting { margin: 2px 0 6px; color: #6c7d75; font-size: .88rem; }
+.official-login-title { margin: 0 0 22px; color: #173b2d; font-size: 1.5rem; font-weight: 800; }
+.official-login-form { display: grid; gap: 14px; text-align: start; }
+.official-field { position: relative; display: grid; gap: 6px; }
+.official-field > span { color: #496258; font-size: .84rem; font-weight: 700; }
+.official-field input { width: 100%; height: 56px; padding: 0 16px; border: 1px solid #dbe5de; border-radius: 9px; color: #173b2d; background: #fff; font-size: .98rem; outline: none; }
+.official-field input:focus { border-color: #007343; box-shadow: 0 0 0 3px rgba(0,115,67,.1); }
+.official-password-field input { padding-inline-end: 48px; }
+.official-password-field > button { position: absolute; inset-inline-end: 14px; bottom: 16px; display: grid; place-items: center; padding: 0; border: 0; color: #65756d; background: transparent; cursor: pointer; }
+.official-forgot { justify-self: start; padding: 0; border: 0; color: #007343; background: transparent; font-size: .86rem; font-weight: 700; cursor: pointer; }
+.official-submit { width: 100%; height: 56px; margin-top: 6px; border: 0; border-radius: 9px; color: #fff; background: #007343; font-size: 1rem; font-weight: 800; cursor: pointer; transition: transform .16s ease, background .16s ease; }
+.official-submit:hover { background: #00643a; }
+.official-submit:active { transform: scale(.98); }
+.official-register { justify-self: center; padding: 0; border: 0; color: #007343; background: transparent; font-size: .92rem; font-weight: 800; cursor: pointer; }
+.official-join { margin: -5px 0 0; color: #6c7d75; text-align: center; font-size: .82rem; }
+.official-demo { margin: 0; color: #007343; text-align: center; font-size: .78rem; line-height: 1.5; }
+.official-back { display: inline-flex; align-items: center; gap: 5px; margin: 0 0 14px; padding: 0; border: 0; color: #007343; background: transparent; font-size: .84rem; font-weight: 700; cursor: pointer; }
+.official-stamp-frame { width: 156px; height: 96px; display: grid; place-items: center; margin: 0 auto 22px; padding: 7px; border: 2px solid #007343; border-radius: 10px; background: #fff; overflow: hidden; }
+.official-stamp-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+
+@media (max-width: 640px) {
+  .official-login-header { height: 64px; padding: 10px 16px; }
+  .official-login-brand img { width: 128px; height: 38px; }
+  .official-login-main { min-height: calc(100vh - 64px); padding: 24px 14px 50px; }
+  .official-login-card { padding: 24px 18px 30px; border-radius: 14px; }
+  .official-card-logo { width: 166px; height: 54px; margin-bottom: 18px; }
+  .official-account-tabs { margin-bottom: 20px; }
+  .official-account-tabs button { min-height: 60px; font-size: .82rem; }
+  .official-login-title { font-size: 1.3rem; }
+  .official-field input, .official-submit { height: 52px; }
+  .official-stamp-frame { width: 142px; height: 86px; margin-bottom: 18px; }
+}
