@@ -344,3 +344,10 @@ body { background: #ffffff; }
 .watch-card > .card-button { width: calc(100% - 44px); margin: 0 22px 22px; padding: 12px 16px; border: 1px solid var(--green-800); border-radius: 2px; color: #fff; background: var(--green-800); font-size: .82rem; font-weight: 800; }
 .watch-card > .card-button:hover { color: var(--green-900); background: var(--gold); }
 @media (max-width: 760px) { .banner-section img { width: 104%; height: clamp(210px, 62vw, 360px); margin-inline: -2%; }.watch-card > .watch-features { padding: 18px 18px 14px; font-size: .76rem; }.watch-card > .card-button { width: calc(100% - 36px); margin: 0 18px 18px; } }
+
+/* Order page Egypt phone fields */
+.phone-field { display: flex; align-items: stretch; direction: ltr; }
+.phone-field .country-prefix { min-width: 82px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 0 10px; border: 1px solid rgba(23,56,42,.18); border-inline-end: 0; color: var(--green-900); background: #f3f8ef; font-weight: 800; }
+.phone-field .country-prefix span:first-child { font-size: 1.15rem; line-height: 1; }
+.phone-field input { flex: 1; min-width: 0; direction: ltr; }
+@media (max-width: 620px) { .phone-field .country-prefix { min-width: 76px; padding: 0 8px; } }
