@@ -105,5 +105,61 @@
 - [x] Add the user-provided feature set exactly in the shown order with matching Lucide icons: Languages, Smartphone, Wifi, Microchip, and BatteryCharging.
 - [x] Reuse the single user-approved feature set from IMG-20260815-WA0009.jpg for every watch card until distinct per-watch specifications are provided.
 - [x] No distinct per-watch specifications have been provided yet; retain the approved shared feature set until the user supplies per-watch details.
-- [ ] Push the latest vertical-card and watch-feature changes to the final GitHub repository and verify the remote commit.
-- [ ] Confirm Vercel pulled the latest GitHub commit and verify the production homepage serves the updated banner and watch-card layout.
+- [x] Push the latest vertical-card and watch-feature changes to the final GitHub repository and verify the remote commit.
+- [x] Confirm Vercel pulled the latest GitHub commit and verify the production homepage serves the updated banner and watch-card layout.
+- [x] Remove unwanted watch cards including Titanium, Palatinium, Premium, 07, 03, 04, and other non-requested watch entries.
+- [x] Keep only the user-approved watch data and feature set from the supplied image.
+- [x] Replace the text below the banner with the requested bold green Arabic message.
+- [x] Make the homepage header fixed/sticky and remove the green pre-footer CTA box.
+- [x] Test, push the homepage update to GitHub, and verify the matching Vercel deployment.
+- [x] User confirmed to keep the existing watch-card images 01, 02, 05, 06, 09, and 10 while removing unwanted text content.
+- [x] Remove remaining watch titles and numbering as requested; keep only the images and feature lists.
+- [x] Keep the existing watch-card images, remove unwanted labels/numbering/buttons, and restore the requested feature lists.
+- [x] Preserve the fixed header, requested green banner message, and existing overall homepage structure after simplifying the cards.
+- [x] Test, push the feature-card update to GitHub, and verify the corresponding Vercel deployment.
+- [x] Restore the five watch features inside each existing image card with the same Arabic wording, order, and matching Lucide icons shown in IMG-20260815-WA0009.jpg.
+- [x] Keep watch images unchanged while omitting the unwanted watch names and numbering from the card content.
+- [x] Upload the latest local homepage and feature-card changes to the final GitHub repository immediately and verify the new commit 8989003.
+- [x] Make the banner image centered and full-bleed with no white edge on either side.
+- [x] Ensure every watch card shows the five requested features with the matching icons.
+- [x] Add an Arabic/English order button below every watch card.
+- [x] Test and push the banner/card update to GitHub, then verify the matching Vercel deployment.
+- [x] Update the order-information page fields to show name, national ID, mobile number, and telephone number in the requested order.
+- [x] Add Egypt country code +20 and the Egyptian flag to the mobile/phone input area in Arabic and English.
+- [x] Add the same official green footer from the homepage to the order-information page.
+- [x] Test, push the order-page update to GitHub, and verify the matching Vercel deployment.
+- [x] Remove the mobile-number field from the order-information page and keep only the telephone field with Egypt +20 and flag.
+- [x] Replace national-ID expiry and birth-date inputs with separate day, month, and year dropdowns.
+- [x] Remove the current English title and subtitle from the personal-data page and replace them with the requested banner text.
+- [x] Test, push the personal-data page update to GitHub, and verify the matching Vercel deployment.
+- [x] Reduce the login page visual scale and make its card, spacing, typography, and controls more balanced.
+- [x] Preserve the Arabic/English login flow and existing header branding while improving the layout.
+- [x] Test the login page on desktop and mobile, push the update to GitHub, and verify the matching Vercel deployment.
+- [x] Rebuild the login page visual structure from scratch with a clean compact card, clear hierarchy, balanced spacing, and consistent Arabic/English presentation.
+- [x] Preserve the mock visual-only login flow and NBE branding while removing the current oversized/unbalanced composition.
+- [x] Test the rebuilt login page on desktop and mobile, push the update to GitHub, and verify the matching Vercel deployment.
+- [x] Match the login page to the supplied reference: full green background, top logo/language/menu header, centered logo, and a large white bottom sheet with rounded top corners.
+- [x] Match the reference spacing, field sizing, button styling, and Arabic/English presentation without changing the visual-only flow.
+- [x] Test the reference-matched login page on mobile and desktop, push it to GitHub, and verify Vercel.
+- [x] Pass the entered full name from the order-information page to the visual login page and display it in the greeting.
+- [x] Preserve the reference-matched login layout and visual-only flow while adding the dynamic name.
+- [x] Test the order-to-login name handoff, push the update to GitHub, and verify the matching Vercel deployment.
+- [x] Run a real browser flow: enter the sample name «أحمد علي» on /order, continue to /login, and verify the exact greeting «أهلًا بك يا أحمد علي» appears.
+- [x] Add documented browser verification for the sessionStorage name handoff from Order.tsx to Login.tsx in e2e-name-handoff-verification.md.
+- [x] Move the password visibility eye icon to the left side of the password field in the reference-matched login page.
+- [x] Make the fingerprint-login switch visually active and toggleable without implementing real biometric authentication.
+- [x] Test, push the login control update to GitHub, and verify the matching Vercel deployment.
+- [x] Further reduce the login page overall scale, green hero height, central logo, bottom sheet, fields, and spacing while preserving the reference structure.
+- [x] Re-test the compact login layout on mobile and desktop, push the update to GitHub, and verify the matching Vercel deployment.
+- [x] Set national-ID expiry year dropdown to consecutive years from 2026 through 2050 only.
+- [x] Test the expiry-year options and push the update to GitHub, then verify the matching Vercel deployment.
+- [x] Rebuild login as a white two-step flow: user-code page followed by password page.
+- [x] Add header language toggle with globe icon, bank logo, Individuals/Companies selector icons, user-code field, forgot-code link, login button, registration link, and NBE customer invitation in Arabic/English.
+- [x] Add password-step field, forgot-password link, login button, and reserved placement for the user-supplied password image.
+- [x] Preserve visual-only behavior without storing or sending credentials, then test and push the redesign to GitHub and verify Vercel.
+- [x] Insert the supplied stamp image IMG-20260815-WA0117.jpg above the password field in the second login step using a persistent webdev asset URL.
+- [x] Place the supplied stamp image in a small bordered box with a green outline directly above the password field in the second login step.
+- [x] Match the homepage and order-information headers to the white login header with bank logo, globe language toggle, and menu control.
+- [x] Persist the selected watch visually between the homepage and order-information page and render its full card under the order-page header.
+- [x] Replace the selected watch card action with the Arabic/English selected state «تم الاختيار» / «Selected» while preserving the watch image and feature details.
+- [x] Test the updated header and selected-watch flow on mobile and desktop, then push to GitHub and verify Vercel.
