@@ -361,3 +361,51 @@ body { background: #ffffff; }
 .date-select-row label { display: grid; gap: .3rem; color: #637168; font-size: .76rem; font-weight: 700; }
 .date-select-row select { width: 100%; min-height: 44px; padding: 0 .65rem; border: 1px solid rgba(23,56,42,.18); border-radius: 10px; background: #fff; color: #17382a; font: inherit; }
 @media (max-width: 620px) { .date-select-row { gap: .4rem; } .date-select-row select { padding: 0 .45rem; font-size: .84rem; } }
+
+/* Final compact login layout override */
+.login-header { height: 72px; padding: 12px clamp(20px, 5vw, 64px); align-items: center; }
+.login-logo img { width: 142px; height: 42px; }
+.login-actions { gap: 14px; }
+.login-language { padding: 6px 11px; font-size: .8rem; }
+.login-menu svg { width: 23px; height: 23px; }
+.login-hero-logo { min-height: 190px; padding: 14px; }
+.login-hero-logo img { width: min(205px, 52vw); height: 70px; padding: 10px 16px; border-radius: 14px; }
+.login-sheet { width: min(100% - 32px, 540px); padding: 22px clamp(22px, 4vw, 38px) 30px; border-radius: 22px 22px 0 0; }
+.sheet-handle { width: 42px; height: 4px; margin-bottom: 18px; }
+.login-intro { gap: 11px; margin-bottom: 18px; }
+.login-user-icon { width: 44px; height: 44px; }
+.login-user-icon svg { width: 22px; height: 22px; }
+.login-intro p { margin-bottom: 3px; font-size: .75rem; }
+.login-intro h1 { font-size: clamp(1.05rem, 2.2vw, 1.35rem); }
+.mock-login-form { gap: 11px; }
+.mock-login-form label > span { margin-bottom: 4px; font-size: .76rem; }
+.mock-login-form input:not([type="checkbox"]) { height: 48px; padding: 0 14px; border-radius: 8px; font-size: .86rem; }
+.password-field > button { bottom: 12px; }
+.password-field > button svg { width: 18px; height: 18px; }
+.login-options { gap: 10px; font-size: .75rem; }
+.remember-option { gap: 6px; }
+.remember-option input { width: 17px; height: 17px; }
+.remember-option span, .forgot-link { font-size: .75rem; }
+.biometric-option { min-height: 40px; gap: 8px; font-size: .78rem; }
+.biometric-option svg { width: 20px; height: 20px; }
+.biometric-option .toggle-visual { width: 58px; height: 28px; padding: 3px; }
+.toggle-visual i { width: 22px; height: 22px; }
+.login-submit { height: 50px; border-radius: 8px; font-size: .95rem; }
+.login-demo-note { padding: 8px 11px; font-size: .72rem; }
+.login-back-link { font-size: .76rem; }
+@media (max-width: 600px) {
+  .login-header { height: 64px; padding: 10px 16px; }
+  .login-logo img { width: 126px; height: 36px; }
+  .login-actions { gap: 9px; }
+  .login-language { padding: 5px 8px; font-size: .72rem; }
+  .login-menu svg { width: 22px; height: 22px; }
+  .login-hero-logo { min-height: 165px; padding: 12px; }
+  .login-hero-logo img { width: min(185px, 55vw); height: 62px; padding: 8px 13px; border-radius: 12px; }
+  .login-sheet { width: min(100% - 22px, 520px); padding: 19px 18px 26px; border-radius: 18px 18px 0 0; }
+  .sheet-handle { margin-bottom: 15px; }
+  .login-intro { margin-bottom: 15px; }
+  .login-intro h1 { font-size: 1.05rem; }
+  .mock-login-form { gap: 10px; }
+  .login-options { align-items: center; flex-direction: row; }
+  .login-submit { height: 48px; }
+}
