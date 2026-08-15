@@ -515,3 +515,48 @@ body { background: #ffffff; }
 .reference-biometric.is-enabled .reference-toggle { background: #007343; }
 .reference-biometric.is-enabled .reference-toggle i { transform: translateX(42px); }
 [dir="rtl"] .reference-biometric.is-enabled .reference-toggle i { transform: translateX(-42px); }
+
+/* Compact reference login refinement */
+.reference-login-header { height: 76px; padding: 14px 4vw; align-items: center; }
+.reference-login-brand img { width: 150px; height: 46px; border-radius: 7px; }
+.reference-login-actions { gap: 14px; }
+.reference-language { min-height: 34px; padding: 6px 11px; font-size: .82rem; }
+.reference-menu { width: 40px; height: 40px; }
+.reference-menu svg { width: 24px; height: 24px; }
+.reference-login-main { min-height: calc(100vh - 76px); }
+.reference-hero-logo { height: 230px; padding: 16px; }
+.reference-hero-logo img { width: min(230px, 58vw); height: 86px; padding: 14px 18px; border-radius: 18px; box-shadow: 0 12px 24px rgba(0,0,0,.1); }
+.reference-login-sheet { width: min(100%, 560px); padding: 24px 30px 32px; border-radius: 28px 28px 0 0; }
+.reference-handle { width: 54px; height: 5px; margin-bottom: 22px; }
+.reference-login-intro { gap: 14px; margin-bottom: 22px; }
+.reference-user-icon { width: 48px; height: 48px; }
+.reference-user-icon svg { width: 24px; height: 24px; }
+.reference-login-intro p { margin-bottom: 4px; font-size: .82rem; }
+.reference-login-intro h1 { font-size: 1.3rem; }
+.reference-login-form { gap: 14px; }
+.reference-login-form label > span { margin-bottom: 5px; font-size: .82rem; }
+.reference-login-form input:not([type="checkbox"]) { height: 56px; padding: 0 16px; border-radius: 10px; font-size: .95rem; }
+.reference-password > button { bottom: 17px; left: 14px; }
+.reference-password > button svg { width: 19px; height: 19px; }
+.reference-options { font-size: .8rem; }
+.reference-biometric { min-height: 48px; gap: 9px; font-size: .88rem; }
+.reference-biometric svg { width: 22px; height: 22px; }
+.reference-biometric .reference-toggle { width: 60px; height: 30px; padding: 3px; }
+.reference-biometric .reference-toggle i { width: 24px; height: 24px; }
+.reference-biometric.is-enabled .reference-toggle i { transform: translateX(30px); }
+[dir="rtl"] .reference-biometric.is-enabled .reference-toggle i { transform: translateX(-30px); }
+.reference-submit { height: 58px; border-radius: 10px; font-size: 1rem; }
+.reference-demo { font-size: .78rem; }
+.reference-back { font-size: .78rem; }
+
+@media (max-width: 640px) {
+  .reference-login-header { height: 64px; padding: 10px 16px; }
+  .reference-login-brand img { width: 124px; height: 38px; }
+  .reference-login-main { min-height: calc(100vh - 64px); }
+  .reference-hero-logo { height: 170px; }
+  .reference-hero-logo img { width: min(190px, 56vw); height: 70px; padding: 10px 14px; border-radius: 14px; }
+  .reference-login-sheet { padding: 20px 18px 28px; border-radius: 24px 24px 0 0; }
+  .reference-login-intro h1 { font-size: 1.12rem; }
+  .reference-login-form input:not([type="checkbox"]) { height: 52px; }
+  .reference-submit { height: 54px; }
+}
