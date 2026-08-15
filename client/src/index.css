@@ -606,3 +606,26 @@ body { background: #ffffff; }
   .official-field input, .official-submit { height: 52px; }
   .official-stamp-frame { width: 142px; height: 86px; margin-bottom: 18px; }
 }
+
+/* Shared login-style header and selected watch presentation */
+.site-shared-header { position: sticky; top: 0; z-index: 30; }
+.site-header-login-link { color: #173b2d; text-decoration: none; font-size: .88rem; font-weight: 800; }
+.site-header-login-link:hover { color: #007343; }
+.site-shared-menu { position: absolute; inset-inline-end: clamp(18px, 5vw, 72px); top: calc(100% + 8px); display: grid; min-width: 170px; padding: 8px; border: 1px solid #dfe8e2; border-radius: 10px; background: #fff; box-shadow: 0 12px 30px rgba(0,65,38,.12); }
+.site-shared-menu a { padding: 10px 12px; color: #173b2d; text-decoration: none; font-size: .88rem; font-weight: 700; border-radius: 7px; }
+.site-shared-menu a:hover { color: #007343; background: #f1faf5; }
+.selected-watch-section { width: min(100%, 720px); margin: 0 auto 24px; }
+.selected-watch-heading { margin-bottom: 14px; text-align: start; }
+.selected-watch-heading h1 { margin: 4px 0 0; color: #173b2d; font-size: clamp(1.3rem, 3vw, 1.8rem); }
+.selected-watch-card { width: 100%; display: grid; grid-template-columns: minmax(180px, 250px) 1fr; gap: 18px; align-items: center; padding: 18px; }
+.selected-watch-card .watch-image-wrap { min-height: 210px; }
+.selected-watch-card .watch-features { margin: 0; }
+.selected-watch-button { grid-column: 1 / -1; cursor: default; opacity: 1; background: #e9f5ee; color: #007343; border: 1px solid #007343; }
+.selected-watch-button:disabled { opacity: 1; }
+@media (max-width: 640px) {
+  .site-shared-header { height: auto; min-height: 64px; }
+  .site-shared-header .official-login-header-actions { gap: 8px; }
+  .site-header-login-link { font-size: .78rem; }
+  .selected-watch-card { grid-template-columns: 1fr; gap: 12px; }
+  .selected-watch-card .watch-image-wrap { min-height: 180px; }
+}
