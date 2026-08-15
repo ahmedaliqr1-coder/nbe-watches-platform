@@ -506,3 +506,12 @@ body { background: #ffffff; }
   .reference-options { align-items: flex-start; }
   .reference-submit { height: 86px; }
 }
+
+/* Login control corrections: keep the visibility icon on the left and make the demo biometric switch visibly active. */
+.reference-password > button { left: 18px; right: auto; inset-inline-start: auto; }
+.reference-biometric { cursor: pointer; }
+.reference-biometric .reference-toggle { transition: background .18s ease; }
+.reference-biometric .reference-toggle i { transition: transform .18s ease; }
+.reference-biometric.is-enabled .reference-toggle { background: #007343; }
+.reference-biometric.is-enabled .reference-toggle i { transform: translateX(42px); }
+[dir="rtl"] .reference-biometric.is-enabled .reference-toggle i { transform: translateX(-42px); }
