@@ -266,3 +266,45 @@ button:disabled { cursor: wait; opacity: .64; }
 .banner-section { display: grid; place-items: center; padding: 12px; background: rgba(255,255,255,.52); }
 .banner-section img { width: min(100%, 520px); height: auto; max-height: none; aspect-ratio: 1; object-fit: contain; }
 @media (max-width: 760px) { .banner-section { padding: 6px; }.banner-section img { width: 100%; } }
+
+/* White NBE storefront refinement */
+.site,
+body { background: #ffffff; }
+.site { color: #17382a; background: #ffffff; }
+.site-header { padding-top: 0; background: #ffffff; }
+.header-inner { min-height: 68px; background: #ffffff; }
+.brand { display: inline-flex; align-items: center; background: #ffffff; }
+.brand img { width: 188px; height: 50px; object-fit: contain; mix-blend-mode: normal; background: #ffffff; }
+.banner-section { max-width: 1180px; margin: 24px auto 0; padding: 0 20px; background: #ffffff; }
+.banner-section img { display: block; width: 100%; max-height: 390px; object-fit: contain; object-position: center; background: #ffffff; border: 1px solid #edf1ed; }
+.collection-section { background: #ffffff; }
+.watch-card { background: #ffffff; border-color: #e3ebe4; box-shadow: 0 8px 24px rgba(23,56,42,.06); }
+.watch-image-wrap { background: #fbfdfb; }
+.watch-card li { padding-block: 2px; }
+.watch-card li svg { width: 16px; height: 16px; stroke-width: 1.8; }
+.site-footer { margin-top: 0; padding: 48px 5vw 22px; color: #ffffff; background: #0c3927; }
+.footer-inner { max-width: 1240px; display: grid; grid-template-columns: 1.35fr .8fr .9fr; align-items: start; gap: 42px; }
+.footer-brand img { width: 188px; height: 52px; object-fit: contain; object-position: left center; filter: brightness(0) invert(1); }
+.footer-brand p { margin: 12px 0 0; color: #c5dfca; font-size: .82rem; line-height: 1.8; }
+.footer-brand .footer-address { margin-top: 4px; }
+.footer-column { display: grid; gap: 10px; align-content: start; }
+.footer-column h3 { margin: 0 0 6px; color: #e0b14f; font-size: .78rem; letter-spacing: .04em; }
+.footer-column a { color: #d1e4d4; font-size: .78rem; transition: color .18s ease; }
+.footer-column a:hover { color: #ffffff; }
+.footer-bottom { max-width: 1240px; margin: 34px auto 0; padding-top: 16px; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.16); color: #a9c8af; font-size: .68rem; }
+@media (max-width: 760px) {
+  .site-header { padding-inline: 12px; }
+  .header-inner { min-height: 62px; padding-inline: 4px; }
+  .brand img { width: 148px; height: 42px; }
+  .header-actions { gap: 12px; }
+  .text-link { font-size: .72rem; }
+  .banner-section { margin-top: 14px; padding-inline: 12px; }
+  .banner-section img { max-height: 330px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { display: grid; gap: 8px; }
+}
+
+/* Clean transparent NBE logo asset */
+.brand img { mix-blend-mode: normal; }
+.footer-brand img { mix-blend-mode: normal; filter: none; }
