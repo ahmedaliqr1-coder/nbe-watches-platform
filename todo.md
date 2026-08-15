@@ -1,0 +1,109 @@
+
+- [x] تأكيد ما إذا كان Firebase سيستخدم بدل قاعدة البيانات الحالية أو لتسجيل الزيارات والبيانات فقط
+- [x] إعداد متغيرات Firebase بطريقة آمنة وعدم تضمين الأسرار في المستودع
+- [x] بناء لوحة Admin محمية بتسجيل الدخول وكلمة مرور
+- [x] تقييد مسارات لوحة Admin للمستخدم الإداري فقط
+- [x] استقبال بيانات طلبات الساعات أو رسائل التواصل داخل لوحة Admin
+- [x] تسجيل الزيارات النشطة وعرضها في لوحة Admin
+- [x] إضافة اختبارات Vitest للمصادقة وصلاحيات لوحة Admin واستقبال البيانات
+- [x] اختبار الواجهة واللوحة قبل رفع المشروع
+- [x] رفع المشروع إلى GitHub بعد تأكيد اسم المستودع
+- [x] نشر المشروع على Vercel بعد تأكيد المستخدم
+- [x] إلغاء اعتماد Firebase Admin السابق الذي كُشف في المحادثة وعدم استخدامه
+- [x] إدخال اعتماد Firebase Admin الجديد عبر قناة الأسرار الآمنة فقط
+- [x] إضافة الصفحة الثانية بنفس الـHeader والشعار ومفتاح اللغة ورابط تسجيل الدخول
+- [x] إضافة حقول الاسم والرقم القومي وتاريخ انتهاء الرقم القومي وتاريخ الميلاد وGmail
+- [x] إضافة زر متابعة الطلب والتحقق من صحة المدخلات قبل الحفظ
+- [x] عرض إشعار الموافقة وسياسة الخصوصية قبل إرسال البيانات الحساسة
+- [x] تخزين بيانات الطلبات في Firebase عبر الخادم فقط مع حماية الوصول
+- [x] تقييد عمليات Admin بصلاحية خادمية واضحة مع جلسة موقعة واختبار رفض غير المصرح لهم
+- [x] إضافة اختبارات تسجيل دخول Admin الناجح والفاشل ومنع requests وvisitors بدون جلسة
+- [x] إضافة اختبار watch.submit مع mock لـ Firebase
+- [x] تأكيد تدوير مفتاح Firebase المكشوف فعليًا من Google Cloud قبل اعتبار الإلغاء مكتملًا
+- [x] إضافة رابط أو نص واضح لسياسة الخصوصية داخل صفحة الطلب وعرضه قبل الإرسال بجانب الموافقة على جمع البيانات الحساسة
+- [x] إضافة اختبار Vitest يمنع admin.visitors بدون جلسة Admin، مع التحقق من فشل الوصول غير المصرح به
+- [x] رفع النسخة المستقرة إلى مستودع GitHub باسم إنجليزي مختلف وفق الطلب اللاحق
+- [x] إعداد مشروع Vercel وربط المستودع الإنجليزي ومتغيرات البيئة المتاحة
+- [x] إتمام Deploy على Vercel والتحقق من رابط الموقع ومسار /admin
+- [x] استلام صورة أو مواصفات صفحة تسجيل الدخول التالية بعد صفحة البيانات
+- [x] تنفيذ صفحة تسجيل الدخول بنفس الهوية البصرية وربطها بتدفق متابعة الطلب
+- [x] اختبار صفحة تسجيل الدخول وتحديث النسخة المستقرة قبل الرفع إلى GitHub
+- [x] تنفيذ صفحة دخول شكلية مطابقة للهوية البصرية دون استقبال أو حفظ بيانات اعتماد حقيقية
+- [x] ربط زر متابعة الطلب بالتدفق البصري للصفحة التالية فقط
+- [x] توضيح نقطة الربط المستقبلية مع المزود الرسمي دون تنفيذها حاليًا
+- [x] إنشاء ملف تحكم مركزي واحد لتدفق الواجهات الشكلية دون تخزين أو إرسال بيانات
+- [x] تنفيذ واجهة OTP شكلية لا تتحقق من رمز حقيقي ولا تحفظه
+- [x] تنفيذ صفحة تواصل مع خدمة العملاء وإضافة زر WhatsApp كرابط واجهة فقط
+- [x] ربط Login ثم OTP ثم Contact بصريًا داخل التدفق
+- [x] اختبار الواجهات الثلاث وحفظ checkpoint محدث قبل الرفع
+- [x] حفظ checkpoint جديد بعد إضافة صفحات Login وOTP وContact وربط التدفق البصري، ثم إعادة التحقق من المسارات /login و/otp و/contact
+- [x] تصغير المقياس العام للواجهات وضبط صفحة تسجيل الدخول لتطابق الصورة المرجعية
+- [x] إعادة فحص المقاسات على الهاتف وحفظ نسخة محدثة
+- [x] إجراء مراجعة بصرية فعلية لصفحة /login بعد التصغير والتأكد من مطابقتها للمرجع
+- [x] حفظ checkpoint جديد بعد تعديلات تصغير المقاسات، ثم إعادة التحقق من /login و/otp و/contact على الهاتف
+- [x] إجراء مراجعة بصرية موثقة لصفحة /login بعد التصغير مقارنة بالصورة المرجعية، ثم تعديل CSS عند الحاجة
+- [x] إعادة التقاط /login بعد المراجعة النهائية وتوثيق أن المقاسات الجديدة معتمدة
+- [x] حفظ checkpoint جديد بعد تعديلات التصغير، ثم إعادة التحقق من /login و/otp و/contact على الهاتف
+- [x] توثيق مراجعة بصرية قابلة للتحقق لصفحة /login بعد التصغير مع ملاحظات مقارنة محددة
+- [x] جعل Header الصفحة الرئيسية باللون الأبيض
+- [x] إبقاء شعار البنك الأهلي وزر تبديل اللغة وتسجيل الدخول وأيقونة الخطوط الثلاثة في Header
+- [x] اختبار Header على الهاتف والكمبيوتر وحفظ النسخة المحدثة
+- [x] عرض كل ساعة داخل Card مستقلة بصورة المنتج
+- [x] إضافة مميزات كل ساعة داخل Card مع أيقونات النمط المرجعي
+- [x] الحفاظ على نفس الخط والألوان والتفاصيل البصرية في قسم البطاقات
+- [x] إضافة النصوص العربية والإنجليزية للبطاقات
+- [x] اختبار قسم الساعات على الهاتف والكمبيوتر وحفظ النسخة المحدثة
+- [x] حفظ checkpoint جديد بعد تعديلات Header وبطاقات الساعات، ثم إعادة التحقق من الصفحة الرئيسية على الهاتف والكمبيوتر
+- [x] توثيق استخدام أيقونات Lucide المطابقة بصريًا لأيقونات المرجع داخل بطاقات الساعات
+- [x] توثيق الخط والألوان والتفاصيل البصرية المستخدمة في قسم البطاقات ومقارنتها بالمرجع
+- [x] إنشاء مستودع GitHub باسم إنجليزي مختلف بعد تأكيد المستخدم
+- [x] رفع النسخة الحالية من المشروع وملفات الواجهة إلى المستودع
+- [x] التحقق من ظهور الملفات والرابط العام للمستودع
+- [x] إنشاء مستودع GitHub باسم إنجليزي مختلف بدل al-ahli وفق الطلب اللاحق
+- [x] رفع النسخة الحالية إلى المستودع النهائي nbe-watches-platform والتحقق من الملفات
+- [x] فتح حساب Vercel والتحقق من الحساب المرتبط بـGitHub
+- [x] اختيار اسم إنجليزي جديد للمستودع وعدم تعديل al-ahli الحالي
+- [x] إنشاء المستودع النهائي ورفع مشروع الساعات إليه
+- [x] ربط المستودع النهائي بـVercel وإتمام النشر والتحقق من الرابط
+- [x] اعتماد اسم مستودع GitHub جديد مختلف عن al-ahli
+- [x] إنشاء المستودع النهائي داخل حساب GitHub الحالي ورفع ملفات مشروع الساعات
+- [x] التحقق من المستودع النهائي وتسليم رابطه
+
+- [x] Set FIREBASE_SERVICE_ACCOUNT_JSON in Vercel using a valid current Firebase service account; ADMIN_PASSWORD is configured and the site deployment is live.
+- [x] Verify the live Vercel URL and /admin route after deployment.
+- [x] Deliver GitHub, Vercel, and admin links with required access notes, including the Firebase configuration limitation.
+- [x] Fix Vercel build failure by uploading patches/wouter@3.7.1.patch and redeploying.
+- [x] Configure Vercel Output Directory as dist/public because the Vite build writes the browser bundle there.
+- [x] Add Vercel SPA rewrite so direct navigation to /admin serves client/index.html instead of 404.
+- [x] Validate the Firebase service-account secret with a lightweight OAuth2 Vitest test before production deployment.
+- [x] Save the Firebase secret to Vercel Production and Preview, redeploy, and verify the live root and /admin routes return HTTP 200.
+
+- [x] Redesign storefront scale and spacing to reduce the oversized, heavy visual treatment while preserving Arabic/English flows.
+- [x] Verify the redesigned homepage on desktop and mobile, including /login, /otp, /contact, and /admin entry paths.
+- [x] Save and publish the refined visual version after tests pass.
+
+- [x] Apply requested homepage structure: white header with NBE logo, language toggle, login, and hamburger menu.
+- [x] Add the user-provided banner image directly below the header.
+- [x] Present the watch images in a lighter, orderly section below the banner.
+- [x] Reorganize the footer as a clean green section.
+- [x] Visually verify redesigned /login, /otp, /contact, and /admin entry behavior on desktop and mobile.
+- [x] Push the latest homepage/banner/footer redesign to GitHub and redeploy Vercel, then re-check the live production URL.
+- [x] Fix production image URLs to use the public storage host so the banner, logo, and watches render correctly on Vercel.
+
+- [x] Change the entire storefront background to white and correct the NBE logo presentation in the white header.
+- [x] Restore the five watch features with their corresponding Languages, Smartphone, Wifi, Microchip, and BatteryCharging icons.
+- [x] Rebuild the green footer with verified official NBE policy, privacy, terms, address, telephone, and official email/contact data.
+- [x] Verify the revised layout, footer links, and core routes on desktop and mobile, then publish the update.
+- [x] Apply the cleaned NBE logo asset consistently to /order, /login, /otp, and /contact headers.
+- [x] Replace the generic footer address with a verified official NBE address and link Terms & Conditions to a verified official terms page.
+- [x] Re-test and publish the white-background/header/footer experience across all primary storefront routes.
+
+- [x] Remove all Banner border/radius treatment so the banner sits flush without visible card edges.
+- [x] Change watch collection to one full-width watch card per row, never two cards side by side.
+- [x] Remove the current generic watch feature list and wait for the user-provided per-watch features.
+- [x] Insert the user-provided features per watch, then test and republish the vertical layout.
+- [x] Add the user-provided feature set exactly in the shown order with matching Lucide icons: Languages, Smartphone, Wifi, Microchip, and BatteryCharging.
+- [x] Reuse the single user-approved feature set from IMG-20260815-WA0009.jpg for every watch card until distinct per-watch specifications are provided.
+- [x] No distinct per-watch specifications have been provided yet; retain the approved shared feature set until the user supplies per-watch details.
+- [ ] Push the latest vertical-card and watch-feature changes to the final GitHub repository and verify the remote commit.
+- [ ] Confirm Vercel pulled the latest GitHub commit and verify the production homepage serves the updated banner and watch-card layout.
