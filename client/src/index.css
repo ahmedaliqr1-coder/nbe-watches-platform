@@ -308,3 +308,18 @@ body { background: #ffffff; }
 /* Clean transparent NBE logo asset */
 .brand img { mix-blend-mode: normal; }
 .footer-brand img { mix-blend-mode: normal; filter: none; }
+
+/* User-requested storefront adjustments: flush banner and one watch per row. */
+.banner-section { margin: 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.banner-section img { display: block; width: 100%; max-width: none; height: auto; max-height: 520px; object-fit: cover; border: 0; border-radius: 0; box-shadow: none; }
+.watch-grid { grid-template-columns: 1fr; gap: 28px; }
+.watch-card { display: grid; grid-template-columns: minmax(280px, 42%) 1fr; border-radius: 0; }
+.watch-image-wrap { height: 300px; }
+.watch-card-body { display: flex; flex-direction: column; justify-content: center; padding: 34px 42px; }
+.watch-card h3 { min-height: auto; margin-bottom: 24px; font-size: clamp(1.15rem, 2vw, 1.55rem); }
+@media (max-width: 720px) {
+  .banner-section img { max-height: none; object-fit: contain; }
+  .watch-card { grid-template-columns: 1fr; }
+  .watch-image-wrap { height: 260px; }
+  .watch-card-body { padding: 24px; }
+}
