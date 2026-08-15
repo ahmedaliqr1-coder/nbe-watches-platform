@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, BatteryCharging, Check, Globe2, Languages, Menu, Microchip, Smartphone, Sparkles, Wifi, X, ShieldCheck } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 
-const logoSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-logo_3b702a17.jpg";
+const logoSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-logo-clean_640cbc86.png";
 const bannerSrc = "https://nbewatches-5ewamt7h.manus.space/manus-storage/nbe-banner_f4c14ca6.jpg";
 
 const watches = [
@@ -54,6 +54,6 @@ export default function Home() {
 
       <section className="cta-section"><div><span className="section-kicker">NBE WATCHES</span><h2>{isAr ? "حضورك يبدأ من التفاصيل." : "Your presence starts with the details."}</h2></div><Link href="/order" className="secondary-button">{copy.cta} {isAr ? <ArrowLeft size={17}/> : <ArrowRight size={17}/>}</Link></section>
     </main>
-    <footer className="site-footer"><div className="footer-inner"><img src={logoSrc} alt="National Bank of Egypt"/><p>{copy.footer}</p><div className="footer-links"><Link href="/admin">{copy.admin}</Link><span>© 2026 NBE Watches</span></div></div></footer>
+    <footer className="site-footer"><div className="footer-inner"><div className="footer-brand"><img src={logoSrc} alt="National Bank of Egypt"/><p>{copy.footer}</p><p className="footer-address">NBE Tower, 1187 Corniche El Nile St., Boulak, Cairo, Egypt</p></div><div className="footer-column"><h3>{isAr ? "روابط مهمة" : "Important links"}</h3><a href="https://www.nbe.com.eg/NBE/E/#/AR/ContactUs" target="_blank" rel="noreferrer">{isAr ? "تواصل معنا" : "Contact us"}</a><a href="https://www.nbe.com.eg/AssetsManager/cddd7789-a1e7-4722-921c-e48a5e0f3dbc.pdf" target="_blank" rel="noreferrer">{isAr ? "سياسة الخصوصية" : "Privacy policy"}</a><a href="https://www.nbe.com.eg/NBE/E/#/EN/ProductCategory?inParams=%7B%22CategoryID%22:%22AhlyNetEstatementTC%22%7D" target="_blank" rel="noreferrer">{isAr ? "الشروط والأحكام" : "Terms & conditions"}</a></div><div className="footer-column"><h3>{isAr ? "خدمة العملاء" : "Customer service"}</h3><a href="tel:19623">19623 {isAr ? "محليًا" : "Locally"}</a><a href="tel:+20219623">0020219623 {isAr ? "دوليًا" : "International"}</a><a href="mailto:Customer.service@nbe.com.eg">Customer.service@nbe.com.eg</a><Link href="/admin">{copy.admin}</Link></div></div><div className="footer-bottom"><span>© 2026 NBE Watches</span><span>{isAr ? "بيانات التواصل الواردة من الموقع الرسمي للبنك الأهلي المصري" : "Contact details sourced from the official NBE website"}</span></div></footer>
   </div>;
 }
