@@ -629,3 +629,6 @@ body { background: #ffffff; }
   .selected-watch-card { grid-template-columns: 1fr; gap: 12px; }
   .selected-watch-card .watch-image-wrap { min-height: 180px; }
 }
+
+/* Keep the selected watch directly below the shared header before the form columns. */
+.form-page > .selected-watch-section { grid-column: 1 / -1; }
