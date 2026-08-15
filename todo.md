@@ -163,3 +163,7 @@
 - [x] Persist the selected watch visually between the homepage and order-information page and render its full card under the order-page header.
 - [x] Replace the selected watch card action with the Arabic/English selected state «تم الاختيار» / «Selected» while preserving the watch image and feature details.
 - [x] Test the updated header and selected-watch flow on mobile and desktop, then push to GitHub and verify Vercel.
+- [x] Make homepage and order-information headers visually identical to the login header, including exact language-button styling and placement.
+- [x] Make clicking the watch card itself, not only its button, select the watch and navigate to order information.
+- [x] Render the selected watch directly below the order-information header with the same image, feature details, and the «تم الاختيار» state.
+- [x] Re-test the corrected flow on mobile and desktop, push the fix to GitHub, and verify Vercel.
