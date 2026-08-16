@@ -992,3 +992,22 @@ body { background: #ffffff; }
 @media (max-width: 640px) {
   .contact-page-white { padding-top: 72px; }
 }
+
+/* Safe admin request workflow */
+.admin-loading { min-height: 180px; margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--green-700); border: 1px dashed rgba(23,56,42,.18); font-size: .82rem; }
+.admin-loading-icon { animation: admin-spin 900ms linear infinite; }
+@keyframes admin-spin { to { transform: rotate(360deg); } }
+.admin-request-row { align-items: center; gap: 18px; }
+.admin-request-row > div:first-child { display: grid; gap: 4px; min-width: 0; }
+.admin-request-row > div:first-child span, .admin-request-row > div:first-child small { color: var(--muted); font-size: .72rem; overflow-wrap: anywhere; }
+.request-actions { margin-inline-start: auto; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+.request-status { padding: 5px 8px; font-size: .68rem; white-space: nowrap; }
+.status-pending { color: #86651c; background: #fff5cf; }
+.status-accepted { color: #1d7540; background: #e4f5e8; }
+.status-rejected { color: #9b3d36; background: #fde8e5; }
+.status-action { display: inline-flex; align-items: center; gap: 4px; padding: 6px 9px; border: 1px solid transparent; font-size: .68rem; cursor: pointer; transition: opacity .18s ease, transform .18s ease; }
+.status-action:active { transform: scale(.97); }
+.status-action:disabled { opacity: .55; cursor: wait; }
+.status-action.accept { color: #1d7540; background: #effaf0; border-color: #b9dfc1; }
+.status-action.reject { color: #9b3d36; background: #fff4f2; border-color: #efc6c1; }
+@media (max-width: 620px) { .admin-request-row { align-items: flex-start; flex-direction: column; } .request-actions { margin-inline-start: 0; justify-content: flex-start; width: 100%; } }
