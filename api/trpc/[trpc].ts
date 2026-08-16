@@ -1,8 +1,8 @@
 import { createHTTPHandler } from "@trpc/server/adapters/standalone";
 
-import { appRouter } from "../../server/routers";
+import { appRouter } from "../../server/routers.js";
 
-import { createContext } from "../../server/_core/context";
+import { createContext } from "../../server/_core/context.js";
 
 
 
