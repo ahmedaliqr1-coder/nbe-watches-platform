@@ -56,23 +56,24 @@ function sessionCookie(value: string, maxAge = MAX_AGE) {
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
   const route = new URL(request.url ?? "/", "http://localhost").pathname.split("/").filter(Boolean).pop() ?? "";
+  const action = route.includes(".") ? route.slice(route.lastIndexOf(".") + 1) : route;
   try {
     const input = inputFrom(request);
-    if (route === "login") {
+    if (action === "login") {
       const configured = process.env.ADMIN_PASSWORD ?? "";
       if (!configured || input.password !== configured) return error(response, 401, "ADMIN_INVALID_PASSWORD");
       return write(response, 200, { success: true }, sessionCookie(sessionValue()));
     }
-    if (route === "logout") return write(response, 200, { success: true }, sessionCookie("", 0));
-    if (route === "me") return write(response, 200, { authenticated: validSession(request) });
+    if (action === "logout") return write(response, 200, { success: true }, sessionCookie("", 0));
+    if (action === "me") return write(response, 200, { authenticated: validSession(request) });
     if (!validSession(request)) return error(response, 401, "ADMIN_UNAUTHORIZED");
-    if (route === "requests") return write(response, 200, (await firebaseRequest<Record<string, unknown> | null>("watchRequests")) ?? {});
-    if (route === "visitors") {
+    if (action === "requests") return write(response, 200, (await firebaseRequest<Record<string, unknown> | null>("watchRequests")) ?? {});
+    if (action === "visitors") {
       const data = (await firebaseRequest<Record<string, any> | null>("activeVisitors")) ?? {};
       const cutoff = Date.now() - 2 * 60 * 1000;
       return write(response, 200, Object.fromEntries(Object.entries(data).filter(([, item]) => item?.lastSeenAt && new Date(item.lastSeenAt).getTime() >= cutoff)));
     }
-    if (route === "heartbeat") {
+    if (action === "heartbeat") {
       await firebaseRequest(`activeVisitors/${encodeURIComponent(input.visitorId)}`, "PUT", { path: input.path ?? "/", language: input.language ?? "ar", lastSeenAt: new Date().toISOString() });
       return write(response, 200, { success: true });
     }
