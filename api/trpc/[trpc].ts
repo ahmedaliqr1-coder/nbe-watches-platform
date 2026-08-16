@@ -1,4 +1,4 @@
-import { createExpressMiddleware } from "@trpc/server/adapters/express";
+import { createHTTPHandler } from "@trpc/server/adapters/standalone";
 
 import { appRouter } from "../../server/routers";
 
@@ -6,17 +6,16 @@ import { createContext } from "../../server/_core/context";
 
 
 
-const trpcHandler = createExpressMiddleware({
+export default createHTTPHandler({
   
   router: appRouter,
   
   createContext,
   
+  basePath: "/api/trpc/",
+  
 });
 
-
-
-export default trpcHandler;
 
 
 
