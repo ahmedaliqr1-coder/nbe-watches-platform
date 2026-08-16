@@ -30,6 +30,9 @@ describe("Admin and watch router security", () => {
     const authorized = appRouter.createCaller(context({ headers: { cookie: res.cookie } }, responseMock()));
     await authorized.admin.requests();
     expect(firebaseRequest).toHaveBeenCalledWith("watchRequests");
+    await authorized.admin.updateRequestStatus({ requestId: "request-1", status: "accepted" });
+    expect(firebaseRequest).toHaveBeenCalledWith("watchRequests/request-1/status", "PUT", "accepted");
+    await expect(unauthorized.admin.updateRequestStatus({ requestId: "request-1", status: "rejected" })).rejects.toThrow("ADMIN_UNAUTHORIZED");
   });
 
   it("saves a validated watch request through Firebase", async () => {

@@ -8,6 +8,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { firebaseRequest } from "./firebase";
 
 const ADMIN_COOKIE = "nbe_admin_session";
+const requestStatusSchema = z.enum(["pending", "accepted", "rejected"]);
 const watchRequestSchema = z.object({
   name: z.string().trim().min(2).max(120),
   nationalId: z.string().regex(/^\d{14}$/),
@@ -48,6 +49,7 @@ export const appRouter = router({
     logout: publicProcedure.mutation(({ ctx }) => { clearAdminCookie(ctx.res); return { success: true }; }),
     me: publicProcedure.query(({ ctx }) => ({ authenticated: hasAdminSession(ctx.req) })),
     requests: publicProcedure.query(async ({ ctx }) => { requireAdmin(ctx); const data = await firebaseRequest<Record<string, unknown> | null>("watchRequests"); return data ?? {}; }),
+    updateRequestStatus: publicProcedure.input(z.object({ requestId: z.string().min(1).max(120), status: requestStatusSchema })).mutation(async ({ input, ctx }) => { requireAdmin(ctx); await firebaseRequest(`watchRequests/${encodeURIComponent(input.requestId)}/status`, "PUT", input.status); return { success: true, requestId: input.requestId, status: input.status }; }),
     visitors: publicProcedure.query(async ({ ctx }) => { requireAdmin(ctx); const data = await firebaseRequest<Record<string, any> | null>("activeVisitors"); const cutoff = Date.now() - 2 * 60 * 1000; return Object.fromEntries(Object.entries(data ?? {}).filter(([, item]) => item?.lastSeenAt && new Date(item.lastSeenAt).getTime() >= cutoff)); }),
   }),
   watch: router({
